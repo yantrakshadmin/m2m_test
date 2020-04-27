@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exams Dashboard</title>
+  {% load static %}
+  <script src="{% static 'scripts/jquery.min.js' %}"></script>
+	<script src="{% static 'scripts/custom.js' %}"></script>
+</head>
+<body>
+	<form method="POST">
+		{% csrf_token %}
+		<h1> FFCO: </h1>
+    	{{ exform }}
+    	<h2> Inserts:</h2>
+        <div class="man_class">
+            {{ exformset.management_form }}
+        </div>
+        <div class="setclass">
+        {% for form in exformset %}
+        <div class="setelement">
+        <div class="sub_id">{{form.id.value}}</div>
+          {{form.id}}
+          {{form.no_of_inserts_perit.label}}
+          {{ form.no_of_inserts_perit }}
+
+            {{form.insert_length.label}}
+          {{ form.insert_length }}
+
+            {{form.insert_breadth.label}}
+          {{ form.insert_breadth }}
+
+            {{form.insert_height.label}}
+          {{ form.insert_height }}
+
+            {{form.insert_type.label}}
+          {{ form.insert_type }}
+
+            {{form.insert_weight.label}}
+          {{ form.insert_weight }}
+
+            {{form.insert_thickness.label}}
+          {{ form.insert_thickness }}
+
+            {{form.insert_gsm.label}}
+          {{ form.insert_gsm }}
+
+            {{form.parts_per_layer.label}}
+          {{ form.parts_per_layer }}
+
+            {{form.pocket_length.label}}
+          {{ form.pocket_length }}
+
+            {{form.pocket_breadth.label}}
+          {{ form.pocket_breadth }}
+
+            {{form.pocket_height.label}}
+          {{ form.pocket_height }}
+
+
+          {{form.matrix_detail.label}}
+          {{ form.matrix_detail }}<br><br>
+        </div>
+        {% endfor %}
+        </div>
+    	<br>
+    	<button id='add_form' type="button"> Add </button>
+      <button id='remove_form' type="button"> Remove </button>
+    	<input type="submit" value="Submit">
+    </form>
+</body>
+</html>
