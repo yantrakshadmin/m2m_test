@@ -67,6 +67,28 @@ def exam_edit(request, pk=None):
     return render(request, 'exams/exam_create.html', {'exform': exform, 'exformset': subexformset})
 
 
+def exam_print(request, pk=None):
+    exam = exams.objects.get(id=pk)
+    subexams = SubExam.objects.filter(parent_exam=exam.id)
+    # exform = ExamForm(instance=exam)
+    # subexformmodelset = modelformset_factory(SubExam, form=SubExamForm)
+    # subexformset = subexformmodelset(request.POST or None, queryset=SubExam.objects.filter(parent_exam=pk))
+    # if request.method == 'POST':
+    #     exform = ExamForm(request.POST, instance=exam)
+    #     if exform.is_valid() and subexformset.is_valid():
+    #         exform.save()
+    #         instances = subexformset.save(commit=False)
+    #         for subexform in instances:
+    #             subexform.parent_exam = exam.id
+    #             subexform.save()
+    #         return redirect('/exams/dashboard/')
+    #     else:
+    #         print(subexformset.errors)
+
+    # return render(request, 'exams/exam_create.html', {'exform': exform, 'exformset': subexformset})
+    return render(request, 'exams/exam_print.html', {'exam':exam,'subexams':subexams})
+
+
 def getset(request):
     extras = int(request.GET.get('extra'))
     pk = int(request.GET.get('pk'))

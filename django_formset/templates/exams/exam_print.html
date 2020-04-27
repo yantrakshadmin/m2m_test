@@ -1,0 +1,182 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+      <div style="padding: 20px 30px;" class="container-fluid">
+          <!--Logo Row-->
+        <table class="table table-borderless my-2" style="border-bottom: 0px solid black;">
+            <tbody>
+              <tr class="d-flex">
+                <td class="col">
+                    <img height="60px" class="mb-3" src="{% static 'home-logo.png' %}" />
+                </td>
+                <td class="col">
+                    <span style="font-size:15px;text-transform: uppercase;">
+
+                        Date:
+                        <br />
+                        #YNT/CP/
+
+                    </span>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+
+        <div class="card text-center" style="font-size:20px;text-transform: uppercase;">
+            <div class="card-body">
+                PROPOSAL FOR ______
+            </div>
+        </div>
+
+        <table class="table table-borderless table-sm mt-4">
+            <tbody>
+                <tr class="d-flex">
+                    <td class="col">
+                        <b>Emitter (Supplier) :</b> {{ exam.pm_type }}
+                        <br/>
+                        <b>Location :</b> {{ exam.pm_type }}
+                        <br/>
+                        <b>State :</b> {{ exam.pm_type }}
+                        <br/>
+                        <b>Contact Person : Allot</b>
+                        <br/>
+                        <b>Contact Number : {{ exam.pm_type }}</b>
+                        <br/>
+                        <b>Email ID : {{ exam.pm_type }}</b>
+                    </td>
+                    <td class="col">
+                        [&nbsp;&nbsp;] Original for consignee
+                        <br/>
+                        [&nbsp;&nbsp;] Duplicate For Transporter
+                        <br/>
+                        [&nbsp;&nbsp;] Triplicate For Consignor
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-borderless table-sm mt-4">
+            <tbody>
+                <tr class="d-flex">
+                    <td class="col">
+                        <b>Receiver details :</b> {{ exam.pm_type }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-borderless table-sm mt-4">
+            <tbody>
+                <tr class="d-flex">
+                    <td class="col">
+                        <b>Flow Implementation timeline :</b>
+                        <br/>
+                        <b>Agreement Status :</b>
+                    </td>
+                    <td class="col">
+                        {{ exam.pm_type }}
+                        <br/>
+                        {{ exam.pm_type }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table id="mainTable" class="table table-bordered table-sm mt-5 mb-4">
+            <thead>
+            <tr>
+                <th>Sr. No.</th>
+                <th>Part Name</th>
+                <th>Reveiver Location</th>
+                <th>No of component per FLC</th>
+                <th>Price Per Component</th>
+                <th>Total Trip cost per FLC</th>
+                <th>Cycle Time (Days)</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in subexams %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.insert_length }}</td>
+                <td>{{ i.insert_length }}</td>
+                <td>{{ i.insert_length }}</td>
+                <td>{{ i.insert_length }}</td>
+                <td>{{ i.insert_length }}</td>
+                <td>{{ i.insert_length }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="footer">
+
+            <table class="table table-borderless mt-5 mb-2" style="border-top: 2px solid black;border-bottom: 2px solid black;">
+                <tbody>
+                  <tr>
+                    <td>
+                        <span class="my-4">
+                            * Cycle time to be revisited after regular intervals, pricing may vary if cycle time varies.
+                                YANTRA Packs will not be responsible for Loading & Unloading activities at __________  and _________.
+                                YANTRA Packs will be responsible for reverse logistics from Destination to Origin.
+                                The Commercial Offer is Valid for 30 days.
+                        </span>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+
+            <div class="container my-4">
+                <div class="row">
+                    <div class="col text-left">
+                        <b>For Sending Location :</b>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <b>Authorized Signature</b>
+                        <br />
+                        (Company Seal & Signature)
+                    </div>
+                    <div class="col text-right">
+                        <b>For Receiving Location :</b>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <b>Authorized Signature</b>
+                        <br />
+                        (Company Seal & Signature)
+                    </div>
+                </div>
+            </div>
+
+            <div class="container text-center mt-4 mb-3">
+                <div style="font-size: 25px;color: #025aff;">Yantraksh Logistics Private Limited</div>
+                <div>CIN No: U74999GJ2018PTC105552</div>
+            </div>
+
+        </div>
+
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

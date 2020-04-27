@@ -13,11 +13,11 @@
 	<tr>
 		<th> Name </th>
 		<th> Actions </th>
-	</tr> 
+	</tr>
 	{% for article in object_list %}
 		<tr>
 			<td> {{article.id}}</td>
-			<td> <a href="{% url 'exam_edit' article.id %}"> Edit </a>  </td>
+			<td> <a href="{% url 'exam_edit' article.id %}"> Edit </a> <a href="{% url 'exam_print' article.id %}"> Print </a> </td>
 		</tr>
 	{% endfor %}
 	</table>
